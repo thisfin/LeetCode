@@ -1,12 +1,20 @@
 #include <iostream>
 
-#include "src/003.cpp"
+#include "src/0004.cpp"
+#include <vector>
 #include <iostream>
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
+using namespace std;
 
-    cout << Solution().lengthOfLongestSubstring("pwwkew") << endl;
+int main() {
+    vector<string> ss;
+//    cout << *ss.begin() << endl;
+    cout << (ss.begin() == ss.end() ? "yes" : "no") << endl;
+    cout << "Hello" << endl;
+
+    vector<int> v1 = {1, 3, 5};
+    vector<int> v2 = {2, 4, 6};
+    cout << Solution().findMedianSortedArrays(v1, v2) << endl;
 
     return 0;
 }

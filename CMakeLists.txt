@@ -3,4 +3,6 @@ project(LeetCode)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(LeetCode main.cpp src/001.cpp src/002.cpp src/003.cpp src/004.cpp)
+aux_source_directory(src DIR_SRCS) # 扫描目录
+
+add_executable(LeetCode main.cpp ${DIR_SRCS})
