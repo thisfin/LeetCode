@@ -3,61 +3,43 @@
 //
 
 #include <string>
-#include <iostream>
 
 using namespace std;
 
 class Solution {
 public:
     string longestPalindrome(string s) {
-        int max = 1;
-        string result = string({s[0]});
-
-        for (int i = 0; i < s.size(); ++i) {
-            int num1 = 1;
-
-            string ss = string({s[i]});
-            for (int step = 1;; ++step) {
-                if ((i - step) >= 0 && (i + step) < s.size()) {
-                    if (s[i - step] == s[i + step]) {
-                        num1 += 2;
-                        ss.insert(ss.begin(), s[i - step]);
-                        ss.push_back(s[i + step]);
-                        cout << ss << endl;
-                    } else {
-                        break;
-                    }
-                } else {
-                    break;
-                }
-            }
-            if (max < num1) {
-                result = ss;
-            }
-            max = max > num1 ? max : num1;
-
-            int num2 = 0;
-            ss = "";
-            for (int step = 1;; ++step) {
-                if ((i + 1 - step) >= 0 && (i + step) < s.size()) {
-                    if (s[i + 1 - step] == s[i + step]) {
-                        num2 += 2;
-                        ss.insert(ss.begin(), s[i + 1 - step]);
-                        ss.push_back(s[i + step]);
-                        cout << ss << endl;
-                    } else {
-                        break;
-                    }
-                } else {
-                    break;
-                }
-            }
-            if (max < num2) {
-                result = ss;
-            }
-            max = max > num2 ? max : num2;
+        // 补位, 为了基数和偶数适用一套逻辑
+        string source = "#";
+        for (char c : s) {
+            source.push_back(c);
+            source.push_back('#');
         }
-        cout << max << endl;
+
+        int index = 0;
+        int max = 0;
+        for (int i = 0; i < source.size(); ++i) {
+            int si = 0;
+            for (int step = 1;; ++step) { // 步进对比
+                if ((i - step) >= 0 && (i + step) < source.size() && source[i - step] == source[i + step]) {
+                    si = step;
+                } else {
+                    break;
+                }
+            }
+            if (si > max) {
+                max = si;
+                index = i;
+            }
+        }
+
+        // 拼接结果
+        string result = "";
+        for (int i = index - max; i <= index + max; ++i) {
+            if (source[i] != '#') {
+                result.push_back(source[i]);
+            }
+        }
         return result;
     }
 };
