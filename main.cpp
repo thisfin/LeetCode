@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "src/0224.cpp"
+#include "src/0338.cpp"
 
 using namespace std;
 
@@ -18,7 +18,7 @@ int main() {
 //    输出：
 //    [null,null,null,null,-3,null,0,-2]
 
-
-    cout << Solution().calculate("1-11") << endl;
+    Solution().countBits(2);
+//    cout << Solution().countBits(2) << endl;
     return 0;
 }
