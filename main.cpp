@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "src/0338.cpp"
+#include "src/0124.cpp"
 
 using namespace std;
 
@@ -17,8 +17,9 @@ int main() {
 //
 //    输出：
 //    [null,null,null,null,-3,null,0,-2]
+    TreeNode * node = new TreeNode(-3);
 
-    Solution().countBits(2);
+    cout << Solution().maxPathSum(node) << endl;
 //    cout << Solution().countBits(2) << endl;
     return 0;
 }
