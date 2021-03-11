@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "src/0300.cpp"
+#include "src/0123.cpp"
 
 using namespace std;
 
@@ -19,8 +19,9 @@ int main() {
 //    [null,null,null,null,-3,null,0,-2]
 //    TreeNode * node = new TreeNode(-3);
 
-vector<int>a({10,9,2,5,3,7,101,18});
-    cout << Solution().lengthOfLIS(a) << endl;
+vector<int>a({3,3,5,0,0,3,1,4});
+a = {2,4,1};
+    cout << Solution().maxProfit(a) << endl;
 //    cout << Solution().countBits(2) << endl;
     return 0;
 }
