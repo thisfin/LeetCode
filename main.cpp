@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "src/0123.cpp"
+#include "src/0094.cpp"
 
 using namespace std;
 
@@ -21,7 +21,9 @@ int main() {
 
 vector<int>a({3,3,5,0,0,3,1,4});
 a = {2,4,1};
-    cout << Solution().maxProfit(a) << endl;
+    TreeNode *node = new TreeNode(1, nullptr, new TreeNode(2, new TreeNode(3, nullptr, nullptr), nullptr));
+    Solution().inorderTraversal(node);
+    cout << "" << endl;
 //    cout << Solution().countBits(2) << endl;
     return 0;
 }
