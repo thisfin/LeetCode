@@ -21,7 +21,32 @@ struct TreeNode {
 
 class Solution {
 public:
-    vector<int> inorderTraversal(TreeNode *root) {
+    vector<int> inorderTraversal(TreeNode *root) { // morris 遍历法
+        TreeNode *node = root;
+        vector<int> result;
+        for (; node != nullptr;) {
+            if (node->left != nullptr) {
+                TreeNode *temp = node->left;
+                for (;;) {
+                    if (temp->right != nullptr) {
+                        temp = temp->right;
+                    } else {
+                        temp->right = node;
+                        break;
+                    }
+                }
+                temp = node->left;
+                node->left = nullptr;
+                node = temp;
+            } else {
+                result.push_back(node->val);
+                node = node->right;
+            }
+        }
+        return result;
+    }
+
+    vector<int> inorderTraversalOld(TreeNode *root) {
         TreeNode *node = root;
         vector<int> result;
         stack<TreeNode *> temp;
