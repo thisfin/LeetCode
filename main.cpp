@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "src/0144.cpp"
+#include "src/0008.cpp"
 
 using namespace std;
 
@@ -20,9 +20,7 @@ int main() {
 //    TreeNode * node = new TreeNode(-3);
 
 vector<int>a({3,3,5,0,0,3,1,4});
-a = {2,4,1};
-    TreeNode *node = new TreeNode(1, nullptr, new TreeNode(2, new TreeNode(3, nullptr, nullptr), nullptr));
-    Solution().preorderTraversal(node);
+    cout << Solution().myAtoi(" -42") << endl;
     cout << "" << endl;
 //    cout << Solution().countBits(2) << endl;
     return 0;
