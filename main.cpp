@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "src/0083.cpp"
+#include "src/0061.cpp"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ int main() {
 
 vector<int>a({3,3,5,0,0,3,1,4});
 //    cout << Solution().myAtoi(" -42") << endl;
-    cout << Solution().deleteDuplicates(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3)))))) << endl;
+    cout << Solution().rotateRight(new ListNode(1, new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(3))))), 2) << endl;
     cout << "" << endl;
 //    cout << Solution().countBits(2) << endl;
     return 0;
