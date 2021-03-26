@@ -4,7 +4,6 @@
 
 #include <string>
 #include <limits>
-#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -13,17 +12,23 @@ class Solution {
 public:
     int myAtoi(string s) {
         // 状态机
-        unordered_map<status, vector<status>> map = {
-                {START,  {START, SIGN, NUMBER, END}},
-                {SIGN,   {END,   END,  NUMBER, END}},
-                {NUMBER, {END,   END,  NUMBER, END}},
-                {END,    {END,   END,  END,    END}}};
+        /*
+        START:  {START, SIGN, NUMBER, END},
+        SIGN:   {END,   END,  NUMBER, END},
+        NUMBER: {END,   END,  NUMBER, END},
+        END:    {END,   END,  END,    END}
+         */
+        vector<vector<status>> vv = {
+                {START, SIGN, NUMBER, END},
+                {END,   END,  NUMBER, END},
+                {END,   END,  NUMBER, END},
+                {END,   END,  END,    END}};
         status sta = START;
         int sign = 1;
         __int64_t result = 0;
 
         for (char c: s) {
-            sta = map[sta][getIndex(c)];
+            sta = vv[sta][getIndex(c)];
             switch (sta) {
                 case START:
                     break;
